@@ -150,3 +150,6 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+# Path shorcut
+export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
