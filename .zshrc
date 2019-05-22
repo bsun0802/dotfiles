@@ -3,7 +3,23 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  z
+  git
+  zsh-syntax-highlighting
+  osx
+)
+
 source $ZSH/oh-my-zsh.sh
+
+#plugin config
+source $(dirname $(gem which colorls))/tab_complete.sh  # add tab completion for flags for colorls
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -22,7 +38,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_CUSTOM_MEDIUM="echo -n '\uF859'-"
 POWERLEVEL9K_CUSTOM_MEDIUM_FOREGROUND="black"
 POWERLEVEL9K_CUSTOM_MEDIUM_BACKGROUND="white"
-source ~/repos/powerlevel9k/powerlevel9k.zsh-theme
+source ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 
 
 # Set list of themes to pick from when loading at random
@@ -72,17 +88,6 @@ source ~/repos/powerlevel9k/powerlevel9k.zsh-theme
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  z
-  git
-  zsh-syntax-highlighting
-  osx
-)
 
 # User configuration
 
