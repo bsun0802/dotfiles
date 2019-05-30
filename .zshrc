@@ -153,3 +153,7 @@ unset __conda_setup
 
 # Path shorcut
 export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
+
+
+# soure
+source ~/.iterm2_shell_integration.zsh
