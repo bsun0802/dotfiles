@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
+export TERM="xterm-256color"
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -12,14 +12,26 @@ export ZSH=$HOME/.oh-my-zsh
 plugins=(
   z
   git
-  zsh-syntax-highlighting
   osx
+  zsh-autosuggestions
+  zsh-completions
 )
 
+
+# plug-in settings
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
+
+
+# source
 source $ZSH/oh-my-zsh.sh
 
-#plugin config
-source $(dirname $(gem which colorls))/tab_complete.sh  # add tab completion for flags for colorls
+source /Users/bsun/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+
+# source ~/.iterm2_shell_integration.zsh
+
+
+
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -120,40 +132,61 @@ source ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 
 
 # <---------- Aliases -------- >
-alias l='Colorls -lAtr --sd'
-# config
+alias l='colorls -lAtr --sd'
+source $(dirname $(gem which colorls))/tab_complete.sh  # add tab completion for flags for colorls
+
+alias lc='ls|wc -l'
+
 alias sublrc='subl ~/.zshrc'
 alias sourcerc='source ~/.zshrc'
+
+alias chuansuo='ssh -p 10076 lfgroup@vipgz2.idcfengye.com'
+alias laoxue='ssh -p 10122 xuedy@100.64.166.214'
+alias python38='/usr/local/opt/python@3.8/bin/python3'
+
+
+# <------- path variables --------->
+export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
 
 
 # <------- short-cut functions --------->
 function mkcd { mkdir -pv "$1" && cd "$1"; }
 
 
+
 # <----------- ENV ------------->
+# mapbox
 export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoibWlyYWNsZS0iLCJhIjoiY2p2M2hwZGRuMDd3ZTQzbndkbTQwNjczcyJ9.BVE2keCDucUMC3WQgseM0A
+# tensorflor object detection API
+export PYTHONPATH=$PYTHONPATH:/Users/bsun/repos/TensorFlow-Projects/models/research:/Users/bsun/repos/TensorFlow-Projects/models/research/slim
 
 
-# added by Anaconda3 2018.12 installer
+
+# added by Anaconda3 2019.10 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
-    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
         CONDA_CHANGEPS1=false conda activate base
     else
-        \export PATH="/anaconda3/bin:$PATH"
+        \export PATH="/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda init <<<
 
-# Path shorcut
-export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
 
 
-# soure
-source ~/.iterm2_shell_integration.zsh
+# < ------ added by nvm ------- >
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# < ------ added by nvm ------- >
+
+
+
+
