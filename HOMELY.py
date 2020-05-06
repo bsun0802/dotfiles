@@ -3,4 +3,4 @@ symlink('.zshrc')
 symlink('.vimrc')
 symlink('.gitignore_global')
 
-mkdir('~/.magick')
+# mkdir('~/.magick')
