@@ -136,13 +136,19 @@ alias l='colorls -lAtr --sd'
 source $(dirname $(gem which colorls))/tab_complete.sh  # add tab completion for flags for colorls
 
 alias lc='ls|wc -l'
+alias tree='tree --filelimit=12'
+
+alias rm='rm -i'
+alias trash='rmtrash'
 
 alias sublrc='subl ~/.zshrc'
 alias sourcerc='source ~/.zshrc'
 
+alias python38='/usr/local/opt/python@3.8/bin/python3'
+
+# ssh server alias
 alias chuansuo='ssh -p 10076 lfgroup@vipgz2.idcfengye.com'
 alias laoxue='ssh -p 10122 xuedy@100.64.166.214'
-alias python38='/usr/local/opt/python@3.8/bin/python3'
 
 
 # <------- path variables --------->
