@@ -1,0 +1,5 @@
+[user]
+	name = Bo Sun
+	email = bos@usc.edu
+[core]
+	excludesfile = /Users/bsun/.gitignore_global

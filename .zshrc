@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -17,9 +18,9 @@ plugins=(
   zsh-completions
 )
 
-
 # plug-in settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
+
 
 
 # source
@@ -31,6 +32,15 @@ source /Users/bsun/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 
+# <- ------ Export path shortcut -------- ->
+export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
+
+# <- ------ Export ENV variables -------- ->
+# mapbox
+export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoibWlyYWNsZS0iLCJhIjoiY2p2M2hwZGRuMDd3ZTQzbndkbTQwNjczcyJ9.BVE2keCDucUMC3WQgseM0A
+# tensorflor object detection API
+export PYTHONPATH=$PYTHONPATH:/Users/bsun/repos/TensorFlow-Projects/models/research:/Users/bsun/repos/TensorFlow-Projects/models/research/slim
+
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -39,32 +49,30 @@ source /Users/bsun/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
 
-
 # <--------- Using POWERLEVEL9K theme ---------->
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_medium dir vcs newline status)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_medium dir vcs newline status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(anaconda virtualenv)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 # add Medium M icon prompt segment
-POWERLEVEL9K_CUSTOM_MEDIUM="echo -n '\uF859'-"
+# POWERLEVEL9K_custom_medium="echo -n '\uF859'-"  
+_realip="$(curl -s 'https://api.ipify.org')"
+POWERLEVEL9K_CUSTOM_MEDIUM="echo -n $(id -un)@$_realip"  # ipconfig getifaddr en7
 POWERLEVEL9K_CUSTOM_MEDIUM_FOREGROUND="black"
 POWERLEVEL9K_CUSTOM_MEDIUM_BACKGROUND="white"
 source ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+# <- ------ zsh behavior settings  ----- ->
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -82,7 +90,7 @@ source ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -149,23 +157,18 @@ alias python38='/usr/local/opt/python@3.8/bin/python3'
 # ssh server alias
 alias chuansuo='ssh -p 10076 lfgroup@vipgz2.idcfengye.com'
 alias laoxue='ssh -p 10122 xuedy@100.64.166.214'
+alias sshusc='ssh bos@hpc-cmb.usc.edu'
 
+# git alias
+alias gits='git status'
 
-# <------- path variables --------->
-export icloud=~/Library/Mobile\ Documents/com~apple~CloudDocs
 
 
 # <------- short-cut functions --------->
 function mkcd { mkdir -pv "$1" && cd "$1"; }
 
 
-
-# <----------- ENV ------------->
-# mapbox
-export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoibWlyYWNsZS0iLCJhIjoiY2p2M2hwZGRuMDd3ZTQzbndkbTQwNjczcyJ9.BVE2keCDucUMC3WQgseM0A
-# tensorflor object detection API
-export PYTHONPATH=$PYTHONPATH:/Users/bsun/repos/TensorFlow-Projects/models/research:/Users/bsun/repos/TensorFlow-Projects/models/research/slim
-
+################################### Added by software installation ########################
 
 
 # added by Anaconda3 2019.10 installer
