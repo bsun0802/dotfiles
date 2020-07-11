@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -19,7 +20,7 @@ plugins=(
 )
 
 # plug-in settings
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=152'
 
 
 
@@ -28,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 source /Users/bsun/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 
-# source ~/.iterm2_shell_integration.zsh
+source ~/.iterm2_shell_integration.zsh
 
 
 
@@ -57,7 +58,7 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 # add Medium M icon prompt segment
-# POWERLEVEL9K_custom_medium="echo -n '\uF859'-"  
+# POWERLEVEL9K_CUSTOM_MEDIUM="echo -n '\uF859'-"  
 _realip="$(curl -s 'https://api.ipify.org')"
 POWERLEVEL9K_CUSTOM_MEDIUM="echo -n $(id -un)@$_realip"  # ipconfig getifaddr en7
 POWERLEVEL9K_CUSTOM_MEDIUM_FOREGROUND="black"
@@ -164,9 +165,21 @@ alias gits='git status'
 
 
 
-# <------- short-cut functions --------->
+# <------- functions --------->
 function mkcd { mkdir -pv "$1" && cd "$1"; }
 
+function peco-history-selection() {
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(history -1000 | eval $tac | cut -c 8- | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 ################################### Added by software installation ########################
 
@@ -197,5 +210,7 @@ export NVM_DIR="$HOME/.nvm"
 # < ------ added by nvm ------- >
 
 
+# added by curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+export PATH="$HOME/.cargo/bin:$PATH"
 
 

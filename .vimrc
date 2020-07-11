@@ -8,3 +8,8 @@ au BufNewFile,BufRead *.py
 \ set fileformat=unix
 
 set nu
+syntax on
+set tabstop=4
+filetype indent on
+set smartindent
+autocmd BufRead,BufWritePre *.sh normal gg=G
