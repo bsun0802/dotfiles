@@ -17,6 +17,7 @@ plugins=(
   osx
   zsh-autosuggestions
   zsh-completions
+  zsh-syntax-highlighting
 )
 
 # plug-in settings
@@ -26,9 +27,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=152'
 
 # source
 source $ZSH/oh-my-zsh.sh
-
-source /Users/bsun/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-
 source ~/.iterm2_shell_integration.zsh
 
 
@@ -60,7 +58,8 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 # add Medium M icon prompt segment
 # POWERLEVEL9K_CUSTOM_MEDIUM="echo -n '\uF859'-"  
 _realip="$(curl -s 'https://api.ipify.org')"
-POWERLEVEL9K_CUSTOM_MEDIUM="echo -n $(id -un)@$_realip"  # ipconfig getifaddr en7
+# POWERLEVEL9K_CUSTOM_MEDIUM="echo -n $(id -un)@$_realip"  # ipconfig getifaddr en7
+POWERLEVEL9K_CUSTOM_MEDIUM="echo U5EWDFffsff777@10.0.16.55"
 POWERLEVEL9K_CUSTOM_MEDIUM_FOREGROUND="black"
 POWERLEVEL9K_CUSTOM_MEDIUM_BACKGROUND="white"
 source ~/.oh-my-zsh/custom/themes/powerlevel9k/powerlevel9k.zsh-theme
@@ -158,7 +157,10 @@ alias python38='/usr/local/opt/python@3.8/bin/python3'
 # ssh server alias
 alias chuansuo='ssh -p 10076 lfgroup@vipgz2.idcfengye.com'
 alias laoxue='ssh -p 10122 xuedy@100.64.166.214'
+alias tesla='ssh -p 18103 zbxs@47.112.99.25'
+alias wuwu='ssh -p 22 zbxs@10.0.16.55'
 alias sshusc='ssh bos@hpc-cmb.usc.edu'
+alias brainpp='ssh -CAXY bsun-ws2-first-instance.sunbo02.ws2@hh-b-internal.brainpp.cn'
 
 # git alias
 alias gits='git status'
