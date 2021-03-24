@@ -377,7 +377,7 @@ regex==2020.6.8
 requests==2.23.0
 rope==0.17.0
 rqdatac==2.8.0
-rsa==4.0
+rsa==4.1
 Rtree==0.9.4
 ruamel-yaml==0.15.87
 ruamel.yaml.clib==0.2.0
