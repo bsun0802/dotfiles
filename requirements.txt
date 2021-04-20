@@ -203,7 +203,7 @@ psutil==5.7.0
 psycopg2==2.8.5
 psycopg2-binary==2.8.5
 ptyprocess==0.6.0
-py==1.8.1
+py==1.10.0
 py-spy==0.3.3
 pyarrow==0.17.0
 pyasn1==0.4.2
